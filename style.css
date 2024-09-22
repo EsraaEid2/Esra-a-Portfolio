@@ -1,43 +1,50 @@
+/* 
+author: @esra'aEid
+github:  @EsraaEid2
+email: esraa.eidd2@gmail.com
+date: 2024-09-21
+project: portfolio
+*/
+@import url('https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css');
+
+:root {
+    --main-color: #A594F9;
+    --secondery-color: #CDC1FF;
+    --text-color: black;
+
+}
+
 * {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
     font-family: cursive, Arial, Helvetica, sans-serif;
-    color: #000000;
+    color: var(--text-color);
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    /* Prevent horizontal overflow */
+
 }
 
 .website-container {
-    background-image: linear-gradient(#E5D9F2, #F5EFFF);
-    background-size: cover;
-    width: 100%;
-    height: 100%;
-}
-
-.hero-container {
     display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    grid-template-rows: repeat(2, auto-fill);
+    row-gap: 150px;
+    grid-template-areas:
+        'head head'
+        'skills skills '
+        'highlightt highlightt'
+        'project project'
+        'footer footer';
+    background-image: linear-gradient(#E5D9F2, #F5EFFF, #ffff);
+    background-size: cover;
     width: 100%;
     height: 100%;
-    justify-content: center;
-    align-items: center;
-    padding: 60px;
-    margin-bottom: 60px;
-    background-color: rgba(255, 255, 255, 0.1);
-    background-size: cover;
-    position: relative;
-    z-index: 0;
-    border-radius: 20px;
-}
-
-.nav {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    margin: auto;
-    padding: 0 2px;
 }
 
 h1,
@@ -50,34 +57,7 @@ h2 {
     margin-bottom: 40px;
 }
 
-#portfolio {
-    line-height: 15px;
-
-}
-
-.nav ul li {
-    display: inline;
-    margin: 0 30px;
-}
-
-.nav ul li a,
-.skill div,
-#myResume {
-    text-decoration: none;
-    font-size: 1.15em;
-    font-weight: 500;
-}
-
-.hoverUL a:hover{
-    cursor: pointer;
-    color: #A594F9;
-
-}
-
-#myResume:hover {
-    cursor: pointer;
-    color: #A594F9;
-}
+/*----hero----*/
 
 .hero-section {
     display: grid;
@@ -88,9 +68,7 @@ h2 {
     padding: 100px;
 }
 
-.hero-section,
-p,
-.resume-section {
+.hero-section p {
     font-size: 1.15em;
     line-height: 25px;
     margin: 10px 0;
@@ -98,68 +76,140 @@ p,
 }
 
 .hero-section .image img {
-    position: absolute;
     margin-top: -250px;
-    width: 650px;
+    width: 750px;
     height: 500px;
+}
+
+.resumeImg {
+    position: absolute;
+    width: 325px;
+    height: 250px;
+}
+
+.hero-container {
+    grid-area: head;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(2, auto-fill);
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    padding: 60px;
+    margin-bottom: 60px;
+    background-size: cover;
+    position: relative;
+    z-index: 0;
+    border-radius: 20px;
+}
+
+/*----nav----*/
+
+.nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin: auto;
+    padding: 0 2px;
+}
+
+.nav ul li {
+    display: inline-block;
+    margin: 0 30px;
+}
+
+.nav ul li a {
+    text-decoration: none;
+    font-size: 1.15em;
+    font-weight: 500;
+}
+
+.nav ul li a:hover {
+    cursor: pointer;
+    color: var(--main-color);
+}
+
+/*----skill-----*/
+
+.skills {
+    grid-area: skills;
+
+}
+
+.skills div h2 {
+    text-align: center;
+    line-height: 1.15;
+    margin-bottom: 1.5rem;
 }
 
 #skills-container,
 #Highlight-section,
 #projects-section {
-    display: flex;
-    flex-direction: column;
-    padding: 50px;
-    gap: 10px;
-    margin-bottom: 100px;
     width: 80%;
-    height: 80%;
+    margin: auto;
+    padding: 2rem;
 }
 
-.ulstyle1 {
+.image-coding {
+    width: 200px;
+    height: auto;
+    margin-right: 2rem;
+}
+
+.ulstyle1 li {
     list-style-type: none;
+    margin: 0 10px;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+.ulstyle1,
+.ulstyle2 {
+    padding: 0;
     display: flex;
     flex-direction: row;
 }
 
-.skill {
-    background-color: #CDC1FF;
+.ulstyle1 .skill {
+    background-color: var(--secondery-color);
+    justify-content: center;
     align-items: center;
-    justify-content: space-between;
-    text-align: center;
-    align-content: center;
-    margin: 200px 20px;
-    width: 200px;
-    height: 100px;
+    padding: 0.5rem;
     border-radius: 15px 50px;
-    box-shadow: 0px 0px 20px 0px #A594F9;
+    width: 300px;
+    height: 100px;
+    box-shadow: 0px 0px 20px 0px var(--main-color);
     transition: box-shadow 0.3s ease;
 }
 
 .skill:hover {
-    box-shadow: 0px 0px 30px 10px #A594F9;
+    box-shadow: 0px 0px 30px 10px var(--main-color);
 }
 
-.resume-section {
-    text-align: left;
-    margin: 0;
+/*----highlight----*/
 
+.highlight-grid {
+    grid-area: highlightt;
 }
 
 .Highlight {
-    background-color: #CDC1FF;
+    background-color: var(--secondery-color);
     text-align: center;
     align-content: center;
-    margin: 20px 20px;
-    width: 50%;
-    height: 50%;
+    margin: 20px;
+    width: 90%;
+    max-width: 600px;
     border-radius: 15px 50px;
-    box-shadow: 0px 0px 20px 0px #A594F9;
+    box-shadow: 0px 0px 20px 0px var(--main-color);
     transition: box-shadow 0.3s ease;
 }
 
 .Highlight:hover {
-    box-shadow: 0px 0px 30px 10px #A594F9;
+    box-shadow: 0px 0px 30px 10px var(--main-color);
 }
 
 .ulstyle2 {
@@ -168,7 +218,11 @@ p,
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    width: 100%;
+    
 }
+
+/*---footer----*/
 
 #emailIcon,
 #githubIcon {
@@ -194,7 +248,7 @@ p,
 
 #bigestText {
     padding: 40px;
-    color: #A594F9;
+    color: var(--main-color);
     text-align: center;
     transition: transform 0.3s ease;
     font-size: 4.5em;
@@ -205,12 +259,12 @@ p,
     flex-direction: column;
     align-items: center;
     justify-content: center;
-}
-
-.footer-section {
-    margin-bottom: -12px;
+    grid-area: footer;
+    margin-bottom: -27px;
     width: 100%;
     background-color: #E5D9F2;
+    border-top-left-radius: 90px;
+    border-top-right-radius: 90px;
 }
 
 .IconsDiv a {
@@ -220,26 +274,47 @@ p,
 
 }
 
-@media(min-width:786px) {
-    .hero-section .image img {
-        width: 330px;
+.project-grid {
+    grid-area: project;
+}
+
+
+
+@media(max-width:768px) {
+
+    .highlight-grid,
+    #skills-container {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .ulstyle1{
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
+
+    }
+    .ulstyle2 {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .Highlight {
+        width: 30%;
+        margin: 10px;
     }
 }
 
 @media(max-width:480px) {
 
-    .hero-section,
-    .nav {
+    .hero-section .nav {
         flex-direction: column;
         justify-content: center;
     }
 
-    .hero-section .text,
-    .hero-section .image {
+    .hero-section .text {
         width: 80%;
     }
 
-    .hero-container::after {
-        clip-path: circle(50% at bottom);
-    }
 }
